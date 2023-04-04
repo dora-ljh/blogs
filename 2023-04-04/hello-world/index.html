@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari_pinned_tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dora-ljh.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近，我决定尝试搭建自己的博客，记录一下自己的成长和学习过程。在此过程中，我选择了使用 Hexo 作为博客框架，搭配 hexo-theme-next 主题。本文将详细记录搭建过程中的各个步骤，希望对初次搭建博客的朋友们有所帮助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次搭建博客：Hexo + Next 主题">
+<meta property="og:url" content="https://dora-ljh.github.io/2023-04-04/hello-world/index.html">
+<meta property="og:site_name" content="dora-ljh的个人博客">
+<meta property="og:description" content="最近，我决定尝试搭建自己的博客，记录一下自己的成长和学习过程。在此过程中，我选择了使用 Hexo 作为博客框架，搭配 hexo-theme-next 主题。本文将详细记录搭建过程中的各个步骤，希望对初次搭建博客的朋友们有所帮助。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-04T14:23:03.000Z">
+<meta property="article:modified_time" content="2023-04-04T07:06:11.663Z">
+<meta property="article:author" content="dora-ljh">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Next">
+<meta property="article:tag" content="博客搭建">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://dora-ljh.github.io/2023-04-04/hello-world/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dora-ljh.github.io/2023-04-04/hello-world/","path":"2023-04-04/hello-world/","title":"第一次搭建博客：Hexo + Next 主题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第一次搭建博客：Hexo + Next 主题 | dora-ljh的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">dora-ljh的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">修改站点配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hexo-theme-next-%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">安装 hexo-theme-next 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%B8%BB%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%85%B3%E4%BA%8E%E7%95%8C%E9%9D%A2%E3%80%81%E5%88%86%E7%B1%BB%E7%95%8C%E9%9D%A2%E5%92%8C%E6%A0%87%E7%AD%BE%E7%95%8C%E9%9D%A2"><span class="nav-number">6.</span> <span class="nav-text">创建关于界面、分类界面和标签界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hexo-word-counter-%E6%8F%92%E4%BB%B6"><span class="nav-number">7.</span> <span class="nav-text">安装 hexo-word-counter 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%A7%88%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">8.</span> <span class="nav-text">预览个人博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-GitHub-Actions-%E9%83%A8%E7%BD%B2%E8%87%B3-GitHub-Pages"><span class="nav-number">9.</span> <span class="nav-text">使用 GitHub Actions 部署至 GitHub Pages</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">dora-ljh</p>
+  <div class="site-description" itemprop="description">保持专注和努力，勇往直前，成为一名非常成功的Web前端工程师！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dora-ljh.github.io/2023-04-04/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dora-ljh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dora-ljh的个人博客">
+      <meta itemprop="description" content="保持专注和努力，勇往直前，成为一名非常成功的Web前端工程师！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="第一次搭建博客：Hexo + Next 主题 | dora-ljh的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第一次搭建博客：Hexo + Next 主题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-04-04 14:23:03 / 修改时间：07:06:11" itemprop="dateCreated datePublished" datetime="2023-04-04T14:23:03+00:00">2023-04-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>920</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>最近，我决定尝试搭建自己的博客，记录一下自己的成长和学习过程。在此过程中，我选择了使用 Hexo 作为博客框架，搭配 hexo-theme-next 主题。本文将详细记录搭建过程中的各个步骤，希望对初次搭建博客的朋友们有所帮助。</p>
+<span id="more"></span>
+
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><hr>
+<p>首先，我们需要在电脑上安装 Hexo。访问 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo 官网</a>，根据官网教程，通过以下命令安装 Hexo 至全局：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><hr>
+<p>使用以下命令初始化一个新的 Hexo 项目：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blogs</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h2><hr>
+<p>接下来，修改站点配置文件 <code>_config.yml</code>，将其配置为自己的个人信息：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">dora-ljh的个人博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;保持专注和努力，勇往直前，成为一名非常成功的Web前端工程师！&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">dora-ljh</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-hexo-theme-next-主题"><a href="#安装-hexo-theme-next-主题" class="headerlink" title="安装 hexo-theme-next 主题"></a>安装 hexo-theme-next 主题</h2><hr>
+<p>通过 npm 的方式直接安装 hexo-theme-next 主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>_config.yml</code> 中配置主题为 next：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><hr>
+<p>Next 主题包含四个子主题，分别是 Muse、Mist、Pisces 和 Gemini。我们可以在配置文件 <code>_config.next.yml</code> 中选择自己喜欢的子主题。例如，选择 Pisces：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建关于界面、分类界面和标签界面"><a href="#创建关于界面、分类界面和标签界面" class="headerlink" title="创建关于界面、分类界面和标签界面"></a>创建关于界面、分类界面和标签界面</h2><hr>
+<p>创建关于界面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>source/about/index.md</code> 文件中填写关于界面的内容。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">title: 关于</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建分类界面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>source/categories/index.md</code> 文件中添加以下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">分类</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">categories</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>创建标签界面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>source/tags/index.md</code> 文件中添加以下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标签</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">tags</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-hexo-word-counter-插件"><a href="#安装-hexo-word-counter-插件" class="headerlink" title="安装 hexo-word-counter 插件"></a>安装 hexo-word-counter 插件</h2><hr>
+<p>安装 hexo-word-counter 插件，可以实现文章字数统计和阅读时长估计功能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-word-counter --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="预览个人博客"><a href="#预览个人博客" class="headerlink" title="预览个人博客"></a>预览个人博客</h2><hr>
+<p>使用以下命令预览个人博客：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s --debug</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-GitHub-Actions-部署至-GitHub-Pages"><a href="#使用-GitHub-Actions-部署至-GitHub-Pages" class="headerlink" title="使用 GitHub Actions 部署至 GitHub Pages"></a>使用 GitHub Actions 部署至 GitHub Pages</h2><hr>
+<ol>
+<li><p>建立名为 <code>&lt;你的 GitHub 用户名&gt;.github.io</code> 的储存库，若之前已将 Hexo 上传至其他储存库，将该储存库重命名即可。</p>
+</li>
+<li><p>将 Hexo 文件夹中的文件 push 到储存库的默认分支，默认分支通常名为 <code>main</code>，旧一点的储存库可能名为 <code>master</code>。</p>
+</li>
+</ol>
+<ul>
+<li><p>将 <code>main</code> 分支 push 到 GitHub：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认情况下 <code>public/</code> 不会被上传(也不该被上传)，确保 <code>.gitignore</code> 文件中包含一行 <code>public/</code>。整体文件夹结构应该与 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-starter">范例储存库</a> 大致相似。</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>使用 <code>node --version</code> 指令检查你电脑上的 Node.js 版本，并记下该版本 (例如：<code>v16.y.z</code>)</p>
+</li>
+<li><p>在储存库中建立 <code>.github/workflows/pages.yml</code>，并填入以下内容 (将 <code>16</code> 替换为上个步骤中记下的版本)：</p>
+</li>
+</ol>
+<p>.github&#x2F;workflows&#x2F;pages.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">name: Pages  </span><br><span class="line">  </span><br><span class="line">on:  </span><br><span class="line"> push:  </span><br><span class="line"> branches:  </span><br><span class="line"> - main \# default branch  </span><br><span class="line">  </span><br><span class="line">jobs:  </span><br><span class="line"> pages:  </span><br><span class="line"> runs-on: ubuntu-latest  </span><br><span class="line"> permissions:  </span><br><span class="line"> contents: write  </span><br><span class="line"> steps:  </span><br><span class="line"> - uses: actions/checkout@v2  </span><br><span class="line"> - name: Use Node.js 16.x  </span><br><span class="line"> uses: actions/setup-node@v2  </span><br><span class="line"> with:  </span><br><span class="line"> node-version: &quot;16&quot;  </span><br><span class="line"> - name: Cache NPM dependencies  </span><br><span class="line"> uses: actions/cache@v2  </span><br><span class="line"> with:  </span><br><span class="line"> path: node_modules  </span><br><span class="line"> key: $&#123;&#123; runner.OS &#125;&#125;-npm-cache  </span><br><span class="line"> restore-keys: |  </span><br><span class="line"> $&#123;&#123; runner.OS &#125;&#125;-npm-cache  </span><br><span class="line"> - name: Install Dependencies  </span><br><span class="line"> run: npm install  </span><br><span class="line"> - name: Build  </span><br><span class="line"> run: npm run build  </span><br><span class="line"> - name: Deploy  </span><br><span class="line"> uses: peaceiris/actions-gh-pages@v3  </span><br><span class="line"> with:  </span><br><span class="line"> github_token: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;  </span><br><span class="line"> publish_dir: ./public  </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>当部署作业完成后，产生的页面会放在储存库中的 <code>gh-pages</code> 分支。</p>
+</li>
+<li><p>在储存库中前往 <code>Settings &gt; Pages &gt; Source</code>，并将 branch 改为 <code>gh-pages</code>。</p>
+</li>
+<li><p>前往 <code>https://&lt;你的 GitHub 用户名&gt;.github.io</code> 查看网站。</p>
+</li>
+</ol>
+<p>部署完成后，就可以通过访问 <code>https://&lt;你的 GitHub 用户名&gt;.github.io</code> 来预览个人博客了。</p>
+<p>至此，我们已经完成了整个博客的搭建过程。希望这篇文章能够帮助你顺利搭建自己的个人博客！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Next/" rel="tag"># Next</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dora-ljh</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">1k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3 分钟</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
