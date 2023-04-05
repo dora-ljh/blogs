@@ -879,6 +879,11 @@ hexo-i18n@^1.0.0:
   dependencies:
     sprintf-js "^1.0.3"
 
+hexo-image-link@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmmirror.com/hexo-image-link/-/hexo-image-link-0.0.5.tgz#3d33e2d72e308d68bce8379a2b483a4fea782e53"
+  integrity sha512-IakmAA0lPATF6iUfHAzYSuZPA6DYLlMj4LTGnT4LeEtmIHjPWsTDgGssPbMJakA47M1vNv5WwiNS3GCtdH2FQw==
+
 hexo-leancloud-counter-security@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npmmirror.com/hexo-leancloud-counter-security/-/hexo-leancloud-counter-security-1.5.0.tgz#e86c7175d816c6681d6270e781702814e40b53b2"
