@@ -138,6 +138,45 @@ it('1 + 1 = 2', () => {
 
 无论你使用 `test` 还是 `it` 方法，都能够达到相同的测试效果。
 
+### `toBeGreaterThanOrEqual` 和 `toBeLessThan`还有`toBe`的区别
+`toBeGreaterThanOrEqual`和`toBeLessThan`是针对数值的匹配器，分别用于比较实际值是否大于等于或小于指定值，而`toBe`匹配器用于判断实际值是否恰好等于预期值。
+
+例如：
+
+```javascript
+expect(5).toBeGreaterThanOrEqual(3); // 通过
+expect(5).toBeGreaterThanOrEqual(5); // 通过
+expect(5).toBeGreaterThanOrEqual(7); // 不通过
+
+expect(5).toBeLessThan(7); // 通过
+expect(5).toBeLessThan(5); // 不通过
+expect(5).toBeLessThan(3); // 不通过
+
+expect(5).toBe(5); // 通过
+expect(5).toBe(6); // 不通过
+```
+
+需要注意的是，`toBe`匹配器使用的是 JavaScript 中的严格相等比较运算符（`===`），而且它不会进行类型转换。
+
+
+### `toEqual`和`toBe` 的区别
+`toEqual`方法比较两个对象的内容，如果它们的属性和属性值都相同，则它们相等。这种比较是递归进行的，也就是说，如果两个对象的属性都是对象，则会比较它们的子属性，直到找到基本类型的属性值为止。这种比较方式称为“深比较”。
+
+相反，`toBe`方法用于比较两个对象的引用是否相同，如果它们引用的是同一个对象，则它们相等。在这种情况下，Jest使用`Object.is`方法进行比较，这种比较方式称为“浅比较”。
+
+例如：
+```javascript
+it('`toEqual`和`toBe` 的区别', () => {
+  const obj = { a: 1, b: 2 };
+  const obj1 = obj;
+  expect(obj).toBe({ a: 1, b: 2 }); // 不通过
+  expect(obj).toEqual({ a: 1, b: 2 }); // 通过
+  expect(obj).toBe(obj1); // 通过
+  expect(obj).toEqual(obj1); // 通过
+});
+```
+
+
 ### `toEqual`和`toStrictEqual` 的区别
 
 
@@ -215,4 +254,42 @@ it('从排序数组中删除重复项', () => {
     expect(nums.slice(0, length)).toEqual([1, 2, 3, 4, 5]);
   });
 ```
-`expect` 函数用于测试函数返回的结果，以及数组元素是否符合预期。其中 `toEqual` 函数用于测试数组是否相等。
+
+## 扩展方法
+
+### 检查一个值是否与一组给定的值中的至少一个相等(toBeOneOf)
+
+如果检查数组中包不包含某个值可以用 `toContain`，例如：
+```javascript
+it('判断[1,2]中包不包含1', () => {
+  expect([1, 2]).toContain(1);
+});
+```
+
+但是要判断一个值，是否在数组中的话，就需要方法扩展了
+
+```javascript
+// 自定义 toBeOneOf 方法
+expect.extend({
+  toBeOneOf(received, expectedArray) {
+    const pass = expectedArray.includes(received);
+    if (pass) {
+      return {
+        message: () => `expected ${received} not to be one of ${expectedArray}`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () => `expected ${received} to be one of ${expectedArray}`,
+        pass: false,
+      };
+    }
+  },
+});
+
+it('判断1在不在数组[1,2]当中', () => {
+  expect(1).toBeOneOf([1, 2]);
+});
+
+```
+
