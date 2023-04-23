@@ -5,9 +5,101 @@ tags: [Jest, 单元测试]
 categories: [技术]
 ---
 
-在软件开发的过程中，单元测试是必不可少的一部分。Jest 是一个流行的 JavaScript 单元测试框架，它能够帮助我们轻松地进行测试，并提供了许多有用的测试工具和断言。本篇博客将着重介绍 Jest 中的 `toEqual` 和 `toStrictEqual` 的区别，并通过测试随机数的例子来演示 Jest 的用法。
+在软件开发的过程中，单元测试是必不可少的一部分。Jest 是一个流行的 JavaScript 单元测试框架，它能够帮助我们轻松地进行测试，并提供了许多有用的测试工具和断言。本篇博客将着重介绍 Jest 的一些用法，并通过一些例子来演示 Jest 的用法。
 
 <!-- more -->
+
+## API用法
+
+### beforeEach
+`beforeEach` 是 Jest 提供的一个函数，它会在每个测试用例（`it` 或 `test`）执行前执行一次，用于准备测试用例所需要的数据或环境。例如，假设我们有以下两个测试用例：
+
+```javascript
+describe('测试beforeEach', () => {
+  it('正数应该返回true', () => {
+    expect(myFunction(1)).toBe(true);
+    expect(myFunction(2)).toBe(true);
+    expect(myFunction(3)).toBe(true);
+  });
+
+  it('负数返回false', () => {
+    expect(myFunction(-1)).toBe(false);
+    expect(myFunction(-2)).toBe(false);
+    expect(myFunction(-3)).toBe(false);
+  });
+});
+```
+
+我们可以在每个测试用例里分别调用 `myFunction` 来测试它的正确性，但这样会导致代码重复，而且每个测试用例都需要调用同一个 `myFunction` 函数，效率低下。为了避免这些问题，我们可以使用 `beforeEach` 来准备 `myFunction` 函数：
+
+```javascript
+describe('测试beforeEach', () => {
+  let myFunction;
+
+  beforeEach(() => {
+    myFunction = jest.fn(num => num > 0);
+  });
+
+  it('正数应该返回true', () => {
+    expect(myFunction(1)).toBe(true);
+    expect(myFunction(2)).toBe(true);
+    expect(myFunction(3)).toBe(true);
+  });
+
+  it('负数返回false', () => {
+    expect(myFunction(-1)).toBe(false);
+    expect(myFunction(-2)).toBe(false);
+    expect(myFunction(-3)).toBe(false);
+  });
+});
+```
+
+在上面的例子中，我们使用了 `beforeEach` 来初始化一个模拟的 `myFunction` 函数，它会根据传入的参数返回一个布尔值，表示参数是否大于 0。这样，在每个测试用例里我们就可以直接使用 `myFunction` 函数了，而不需要每个测试用例里都写一遍相同的代码。
+
+### toContain
+在 Jest 中，`toContain` 是一个匹配器（matcher），用于检查某个值是否包含在另一个值中。具体来说，它可以用于以下数据类型：
+
+*   字符串：检查字符串是否包含指定的子字符串。
+*   数组：检查数组是否包含指定的元素。
+*   Set：检查 Set 是否包含指定的元素。
+*   Map：检查 Map 是否包含指定的键。
+*   Object：检查对象是否包含指定的属性。
+
+`toContain` 的使用方式如下：
+
+```javascript
+test('检查数组是否包含值', () => {
+  const arr = [1, 2, 3];
+  expect(arr).toContain(2);
+  expect(arr).not.toContain(4);
+});
+
+test('检查字符串是否包含子字符串', () => {
+  const str = 'hello, world!';
+  expect(str).toContain('world');
+  expect(str).not.toContain('foo');
+});
+
+test('检查Set是否包含值', () => {
+  const set = new Set([1, 2, 3]);
+  expect(set).toContain(2);
+  expect(set).not.toContain(4);
+});
+
+test('检查Map是否包含键', () => {
+  const map = new Map([['foo', 1], ['bar', 2], ['baz', 3]]);
+  expect(map).toContain('foo');
+  expect(map).not.toContain('qux');
+});
+
+test('检查对象是否包含属性', () => {
+  const obj = { foo: 1, bar: 2, baz: 3 };
+  expect(obj).toHaveProperty('foo');
+  expect(obj).not.toHaveProperty('qux');
+});
+```
+
+在上面的例子中，我们分别使用 `toContain` 来检查数组、字符串、Set、Map 和对象是否包含指定的值或属性。如果匹配成功，则测试通过；否则测试失败。
 
 ## 区别
 
@@ -80,7 +172,15 @@ expect(obj1).not.toStrictEqual(obj2); // 通过
 ## 一些使用方法
 
 ### 测试随机数
-在 Jest 中，您可以使用 mock 函数模拟随机数生成器的行为，以便您可以测试随机数的结果。下面是一个示例：
+在 Jest 中，可以使用`toContain`的方式测试随机数，如：
+```javascript
+it('使用toContain测试随机数', () => {
+    expect([1, 2, 3, 4, 5]).toContain(Math.ceil(Math.random() * 5));
+});
+```
+查看随机的值，是否在数组中，如果在的话，则通过。
+
+也可以使用 mock 函数模拟随机数生成器的行为，以便您可以测试随机数的结果。下面是一个示例：
 
 ```javascript
 // 测试函数
@@ -88,7 +188,7 @@ function getRandomNumber() {
   return Math.random() * 100;
 }
 
-test('random number test', () => {
+test('测试随机数', () => {
   // 创建 mock 函数
   const mockMath = Object.create(global.Math);
   mockMath.random = () => 0.5;
