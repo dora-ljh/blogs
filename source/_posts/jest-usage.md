@@ -101,6 +101,25 @@ test('检查对象是否包含属性', () => {
 
 在上面的例子中，我们分别使用 `toContain` 来检查数组、字符串、Set、Map 和对象是否包含指定的值或属性。如果匹配成功，则测试通过；否则测试失败。
 
+
+### toContainEqual
+
+`toContainEqual`是Jest的一个匹配器（matcher），用于在集合（数组或对象）中查找是否包含某个元素，而不是精确匹配。
+
+与 `toContain` 匹配器不同， `toContainEqual` 会检查每个元素的值，而不是比较对象引用。
+
+下面是一个示例：
+
+```javascript
+test('检查arr中是否包含某个对象', () => {
+  const arr = [{ id: 1, name: 'John' }, { id: 2, name: 'Doe' }];
+  expect(arr).toContainEqual({ id: 1, name: 'John' });
+  expect(arr).not.toContainEqual({ id: 1, name: 'Mary' });
+});
+```
+
+在这个例子中， `toContainEqual` 将检查对象的值而不是引用。 因此， `expect(arr)` 包含对象 `{ id: 1, name: 'John' }`，因此测试通过。 但是，`expect(arr)` 不包含对象 `{ id: 1, name: 'Mary' }`，因此测试不通过。
+
 ## 区别
 
 ### `it` 和 `test` 的区别
